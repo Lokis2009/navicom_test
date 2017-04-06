@@ -1,0 +1,25 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\000031}}
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  min-width: 320px;
+  position: relative;
+  line-height: 1.42857;
+  -webkit-font-smoothing: antialised; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000310}}
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+  color: green; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000313}}
+body input:required:valid,
+body textarea:required:valid {
+  color: green; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000317}}
+.hidden {
+  display: none; }
+
+/*# sourceMappingURL=main.css.map */
