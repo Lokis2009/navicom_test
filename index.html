@@ -11,10 +11,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 </head>
 <body ng-app="todoApp">
-<div ng-controller="mainCtrl">
-
+<div class="container" ng-controller="mainCtrl">
+	<h1>Hello, I'am ToDo list</h1>
+	<ul>
+		<li ng-repeat="todo in todos"><input type="checkbox">{{todo.text}}</li>
+	</ul>
+	<input type="text" ng-model="newText">
+	<button type="button" ng-click="addTodo()">Add</button><br>
+	{{newText}}<br>
+	Total: {{todos.length}}
 </div>
-	
 	<div class="hidden"></div>
 	<!--[if lt IE 9]>
 	<script src="libs/html5shiv/es5-shim.min.js"></script>
