@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8" />
 	<title>Navicom Test</title>
@@ -10,17 +11,30 @@
 	<link rel="stylesheet" href="css/media.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
 </head>
+
 <body ng-app="todoApp">
-<div class="container" ng-controller="mainCtrl">
-	<h1>Hello, I'am ToDo list</h1>
-	<ul>
-		<li ng-repeat="todo in todos"><input type="checkbox">{{todo.text}}</li>
-	</ul>
-	<input type="text" ng-model="newText">
-	<button type="button" ng-click="addTodo()">Add</button><br>
-	{{newText}}<br>
-	Total: {{todos.length}}
-</div>
+	<div class="container" data-ng-controller="mainCtrl">
+		<section class="app-body">
+			<section class="archive-control">
+				<span>{{ remaining() }} of {{ todos.length }} remaining</span>
+				<p>[ <a href="" data-ng-click="archive()">Remove Completed Items</a> ]</p>
+			</section>
+
+			<ul class="unstyled">
+				<li data-ng-repeat="todo in todos track by $index">
+					<input type="checkbox" data-ng-model="todo.done" ng-change="done()">
+					<span class="done-{{ todo.done }}">{{ todo.text }}</span>
+				</li>
+			</ul>
+
+			<form data-ng-submit="addTodo()" class="todo-form">
+				<input type="text" data-ng-model="todoText" placeholder="Enter new ToDo item" />
+				<br />
+				<input type="submit" value="Add Task" />
+			</form>
+		</section>
+	</div>
+
 	<div class="hidden"></div>
 	<!--[if lt IE 9]>
 	<script src="libs/html5shiv/es5-shim.min.js"></script>
@@ -28,9 +42,12 @@
 	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
 	<script src="libs/respond/respond.min.js"></script>
 	<![endif]-->
-<!--	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>-->
+	<!--	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>-->
 	<script src="js/common.js"></script>
-	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
-	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
+	<!-- Yandex.Metrika counter -->
+	<!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter -->
+	<!-- /Google Analytics counter -->
 </body>
+
 </html>
