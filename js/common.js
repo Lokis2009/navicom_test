@@ -4,6 +4,11 @@ const key = 'navicom';
 
 app.controller('mainCtrl', function ($scope) {
 
+	var save = function () {
+		localStorage.setItem(key, JSON.stringify($scope.todos));
+	};
+	
+	
 	$scope.saved = localStorage.getItem(key);
 	$scope.todos = (localStorage.getItem(key) !== null) ? JSON.parse($scope.saved) : [{
 		text: 'new Task',
@@ -12,7 +17,7 @@ app.controller('mainCtrl', function ($scope) {
 		text: 'another Task',
 		done: false
 	}];
-	localStorage.setItem(key, JSON.stringify($scope.todos));
+	save();
 
 	$scope.addTodo = function () {
 		$scope.todos.push({
@@ -20,7 +25,7 @@ app.controller('mainCtrl', function ($scope) {
 			done: false
 		});
 		$scope.todoText = ''; //clear the input 
-		localStorage.setItem(key, JSON.stringify($scope.todos));
+		save();
 	};
 
 	$scope.remaining = function () {
@@ -38,11 +43,10 @@ app.controller('mainCtrl', function ($scope) {
 			if (!todo.done)
 				$scope.todos.push(todo);
 		});
-		localStorage.setItem(key, JSON.stringify($scope.todos));
+		save();
 	};
 
 	$scope.done = function () {
-
 
 		for (var i = 0; i < $scope.todos.length; i++) {
 			if ($scope.todos[i].text == this.todo.text) {
@@ -50,6 +54,15 @@ app.controller('mainCtrl', function ($scope) {
 			}
 		}
 
-		localStorage.setItem(key, JSON.stringify($scope.todos));
+		save();
 	};
+	
+	$scope.markAll = function() {
+		for (var i = 0; i < $scope.todos.length; i++) {
+			$scope.todos[i].done = true
+			}
+		}
+
+		save();
+	
 });
