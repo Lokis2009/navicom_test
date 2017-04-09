@@ -22,4 +22,26 @@ body textarea:required:valid {
 .hidden {
   display: none; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000321}}
+#todo-list li {
+  list-style-type: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000323}}
+#todo-list .edit {
+  display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000328}}
+#todo-list .editing {
+  border-bottom: 1px solid #778899; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000335}}
+#todo-list .view {
+  display: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000341}}
+#todo-list .editing {
+  display: block;
+  width: 444px;
+  padding: 13px 15px 14px 20px;
+  margin: 0; }
+
 /*# sourceMappingURL=main.css.map */

@@ -9,32 +9,36 @@
 	<link rel="shortcut icon" href="./img/batman_black.ico" />
 	<link rel="stylesheet" href="css/main.css" />
 	<link rel="stylesheet" href="css/media.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 
 <body ng-app="todoApp">
 	<div class="container" data-ng-controller="mainCtrl">
-		<section class="app-body">
+		<div class="row">
+		<h1>ToDo App</h1>
+		
 			<section class="archive-control">
 				<span>{{ remaining() }} of {{ todos.length }} remaining</span>
 				<p>[ <a href="" data-ng-click="archive()">Remove Completed Items</a> ]</p>
 			</section>
 
-			<ul class="unstyled">
-				<li data-ng-repeat="todo in todos track by $index">
+			<ul id="todo-list">
+				<li data-ng-repeat="todo in todos track by $index" ng-dblclick="toggleEditMode()">
 					<input type="checkbox" data-ng-model="todo.done" ng-change="done()">
 					<span class="done-{{ todo.done }}">{{ todo.text }}</span>
+					<input class="form-control" type="text" ng-model="todo.text" ng-keyup="editOnEnter(todo)" />
 				</li>
+
 			</ul>
 
-			<form data-ng-submit="addTodo()" class="todo-form">
-				<input type="text" data-ng-model="todoText" placeholder="Enter new ToDo item" />
+			<form data-ng-submit="addTodo()" class="todo-form form-group">
+				<input type="text" data-ng-model="todoText" placeholder="Enter new ToDo item" class="form-group" />
 				<br />
-				<input type="submit" value="Add Task" />
+				<input type="submit" value="Add Task" class='btn btn-default'/>
 			</form>
-			<button ng-click="markAll()">Mark All</button>
-			
-		</section>
+			<button ng-click="markAll()" class='btn  btn-info' type="button">Mark All</button>
+		</div>
 	</div>
 
 	<div class="hidden"></div>
@@ -44,7 +48,11 @@
 	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
 	<script src="libs/respond/respond.min.js"></script>
 	<![endif]-->
-	<!--	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>-->
+	
+	<script src="./libs/jquery-3.2.0.slim.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+
 	<script src="js/common.js"></script>
 	<!-- Yandex.Metrika counter -->
 	<!-- /Yandex.Metrika counter -->

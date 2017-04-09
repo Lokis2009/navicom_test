@@ -7,8 +7,8 @@ app.controller('mainCtrl', function ($scope) {
 	var save = function () {
 		localStorage.setItem(key, JSON.stringify($scope.todos));
 	};
-	
-	
+
+
 	$scope.saved = localStorage.getItem(key);
 	$scope.todos = (localStorage.getItem(key) !== null) ? JSON.parse($scope.saved) : [{
 		text: 'new Task',
@@ -56,13 +56,23 @@ app.controller('mainCtrl', function ($scope) {
 
 		save();
 	};
-	
-	$scope.markAll = function() {
+
+	$scope.markAll = function () {
 		for (var i = 0; i < $scope.todos.length; i++) {
 			$scope.todos[i].done = true
-			}
 		}
+	}
 
-		save();
+	save();
+
+	$scope.toggleEditMode = function () {
+		$(event.target).closest('li').toggleClass('editing');
+		};
 	
+	$scope.editOnEnter = function (todo) {
+		if (event.keyCode == 13 && todo.text) {
+			$scope.toggleEditMode();
+		}
+	};
+
 });
