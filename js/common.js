@@ -19,13 +19,15 @@ app.controller('mainCtrl', function ($scope) {
 	}];
 	save();
 
-	$scope.addTodo = function () {
-		$scope.todos.push({
-			text: $scope.todoText,
-			done: false
-		});
-		$scope.todoText = ''; //clear the input 
-		save();
+	$scope.addTodo = function (todoText) {
+		if (todoText) {
+				$scope.todos.push({
+				text: $scope.todoText,
+				done: false
+			});
+			$scope.todoText = '';
+			save();
+		}
 	};
 
 	$scope.remaining = function () {
@@ -66,12 +68,16 @@ app.controller('mainCtrl', function ($scope) {
 	save();
 
 	$scope.toggleEditMode = function () {
-		$(event.target).closest('li').toggleClass('editing');
-		};
-	
+		$(event.target).parent().next().toggleClass('editing');
+		$(event.target).parent().toggleClass('view');
+	};
+
 	$scope.editOnEnter = function (todo) {
 		if (event.keyCode == 13 && todo.text) {
-			$scope.toggleEditMode();
+			save();
+			$(event.target).toggleClass('editing');
+			$(event.target).siblings().toggleClass('view');
+
 		}
 	};
 

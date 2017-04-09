@@ -44,4 +44,22 @@ body textarea:required:valid {
   padding: 13px 15px 14px 20px;
   margin: 0; }
 
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000346}}
+#todo-list {
+  margin: 0 auto; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000349}}
+section {
+  text-align: center; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000351}}
+.done-true {
+  text-decoration: line-through; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/D\:\/Git\/navicom_test\/css\/sass\/main\.sass}line{font-family:\0000353}}
+.todo-form {
+  text-align: center;
+  padding-top: 2%;
+  margin: 0 auto; }
+
 /*# sourceMappingURL=main.css.map */
